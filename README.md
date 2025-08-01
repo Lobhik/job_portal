@@ -60,7 +60,7 @@ job_portal/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/job_portal.git
+https://github.com/Lobhik/job_portal.git
 cd job_portal
 
 # 2. Create and activate virtual environment
