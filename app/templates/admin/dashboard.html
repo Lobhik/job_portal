@@ -1,0 +1,41 @@
+{% extends "layout/sidebar.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block page_title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h4>Dashboard - Key Statistics</h4>
+<table class="table table-bordered text-center">
+  <thead class="table-dark">
+    <tr>
+      <th>Metric</th>
+      <th>Today</th>
+      <th>This Week</th>
+      <th>This Month</th>
+      <th>This Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Total Jobs</th>
+      <td>{{ stats.jobs.day }}</td>
+      <td>{{ stats.jobs.week }}</td>
+      <td>{{ stats.jobs.month }}</td>
+      <td>{{ stats.jobs.year }}</td>
+    </tr>
+    <tr>
+      <th>Employers</th>
+      <td>{{ stats.employers.day }}</td>
+      <td>{{ stats.employers.week }}</td>
+      <td>{{ stats.employers.month }}</td>
+      <td>{{ stats.employers.year }}</td>
+    </tr>
+    <tr>
+      <th>Jobseekers</th>
+      <td>{{ stats.jobseekers.day }}</td>
+      <td>{{ stats.jobseekers.week }}</td>
+      <td>{{ stats.jobseekers.month }}</td>
+      <td>{{ stats.jobseekers.year }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
+

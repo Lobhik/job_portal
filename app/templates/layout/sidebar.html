@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Dashboard{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    .sidebar {
+      height: 100vh;
+      background: #343a40;
+      position: fixed;
+      width: 60px;
+      transition: width 0.3s;
+      overflow: hidden;
+    }
+    .sidebar:hover {
+      width: 200px;
+    }
+    .sidebar .nav-link {
+      color: white;
+      padding: 15px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+    .sidebar .nav-link:hover {
+      background: #495057;
+    }
+    .sidebar .icon {
+      width: 30px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .sidebar .label {
+      opacity: 0;
+      transition: opacity 0.2s;
+      margin-left: 10px;
+    }
+    .sidebar:hover .label {
+      opacity: 1;
+    }
+    .main-content {
+      margin-left: 60px;
+      padding: 20px;
+      transition: margin-left 0.3s;
+    }
+    .sidebar:hover + .main-content {
+      margin-left: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="d-flex">
+    <div class="sidebar d-flex flex-column p-2">
+      <a href="#" class="nav-link">
+        <span class="icon">🏠</span>
+        <span class="label">Dashboard</span>
+      </a>
+      <a href="#" class="nav-link">
+        <span class="icon">📄</span>
+        <span class="label">Jobs</span>
+      </a>
+      <a href="#" class="nav-link">
+        <span class="icon">👤</span>
+        <span class="label">Profile</span>
+      </a>
+      <a href="{{ url_for('auth.logout') }}" class="nav-link mt-auto">
+        <span class="icon">🚪</span>
+        <span class="label">Logout</span>
+      </a>
+    </div>
+
+    <div class="main-content flex-grow-1">
+      <header class="mb-4">
+        <h3>{% block page_title %}Welcome{% endblock %}</h3>
+      </header>
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</body>
+</html>

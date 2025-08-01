@@ -1,0 +1,18 @@
+{% extends "layout/sidebar.html" %}
+{% block title %}Applications for {{ job.title }}{% endblock %}
+{% block page_title %}Applications for "{{ job.title }}"{% endblock %}
+{% block content %}
+{% if applications %}
+  <ul class="list-group">
+    {% for app in applications %}
+    <li class="list-group-item">
+      Jobseeker ID: {{ app.jobseeker_id }} <br>
+      Applied On: {{ app.applied_at.strftime("%Y-%m-%d") }}
+    </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No applications received for this job yet.</p>
+{% endif %}
+<a href="{{ url_for('employer.dashboard') }}" class="btn btn-secondary mt-3">← Back to Dashboard</a>
+{% endblock %}
