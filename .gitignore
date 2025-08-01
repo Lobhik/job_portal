@@ -4,3 +4,7 @@ venv
 \__pycache__
 
 .vscode
+
+cmd_file.txt
+test_instance
+instance
